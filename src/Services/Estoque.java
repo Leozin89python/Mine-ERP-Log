@@ -33,12 +33,16 @@ public class Estoque {
 
 	@Override
 	public String toString() {
-		return "Estoque:" 
+		return  "================"
+				+"\n"
+				+"Estoque:" 
 				+"\n"
 				+"codigo:"
 				+cod 
 				+"\n"
 				+"quantidade:" 
-				+ quantidade;
+				+ quantidade
+				+"\n"
+				+"===============";
 	}		
 }

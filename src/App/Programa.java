@@ -1,13 +1,15 @@
 package App;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import Controle.Login;
 import Controle.Erros;
 import Services.Distribuicao;
 import Services.Estoque;
-import Services.Enum.codigo;;
+import Services.Enum.codigo;
+import Services.Pessoal;
 
 public class Programa {
 
@@ -18,6 +20,7 @@ public class Programa {
 		List <Login> log = new ArrayList<>();
 		List <Distribuicao> dis = new ArrayList<>();
 		List <Estoque> stq = new ArrayList<>();
+		List <Pessoal> ps = new ArrayList<>();
 		
 		System.out.println("=============");
 		System.out.println("===Sistema===");
@@ -26,6 +29,7 @@ public class Programa {
 		System.out.println("");
 		
 		try	{
+			/*
 				System.out.println("Login:");
 				String Email = sc.next();
 				System.out.println("Senha:");
@@ -36,11 +40,7 @@ public class Programa {
 			    	System.out.println(pass.validaLog1(Email, Senha));
 			    	}
 	   
-		}catch(Erros e) {
-			System.out.println("Erro:" + e.getMessage());
-		}catch(Exception e) {
-			System.out.println("Erro:" + e.getMessage());
-		}
+		*/
 		
 		System.out.println("");
 		System.out.println("=============");
@@ -91,6 +91,18 @@ public class Programa {
 			break;
 		case 4:
 			System.out.println("4 - Pessoal");
+			System.out.println("nome:");
+			String nome = sc.next();
+			System.out.println("setor:");
+			String setor = sc.next();
+			System.out.println("cargo:");
+			String cargo = sc.next();
+			System.out.println("salario:");
+			double salario = sc.nextDouble();
+			ps.add(new Pessoal(nome,setor,cargo,salario));
+			for(Pessoal info : ps )	{
+				System.out.println(info.toString());
+			}
 			break;
 		case 5:
 			System.out.println("5 - Produtos");
@@ -133,7 +145,7 @@ public class Programa {
 				break;
 			case 2:
 				System.out.println("2 - Estoque");
-				System.out.println("codigo de prioridade do produto:");
+				System.out.println("código de prioridade do produto:");
 				String cod = sc.next();
 				System.out.println("qntdd:");
 				int quantidade = sc.nextInt();
@@ -147,6 +159,18 @@ public class Programa {
 				break;
 			case 4:
 				System.out.println("4 - Pessoal");
+				System.out.println("nome:");
+				String nome = sc.next();
+				System.out.println("setor:");
+				String setor = sc.next();
+				System.out.println("cargo:");
+				String cargo = sc.next();
+				System.out.println("salario:");
+				double salario = sc.nextDouble();
+				ps.add(new Pessoal(nome,setor,cargo,salario));
+				for(Pessoal info : ps )	{
+					System.out.println(info.toString());
+				}
 				break;
 			case 5:
 				System.out.println("5 - Produtos");
@@ -158,6 +182,18 @@ public class Programa {
 			System.out.println("deseja continuar (s/n)?");
 			resp = sc.next().charAt(0);
 			}
+		
+		}catch(Erros e) {
+			System.out.println("Erro:" + e.getMessage());
+			
+		}catch(InputMismatchException e) {
+			
+			System.out.println("Erro:" + e.getMessage());
+		}
+		catch(Exception e) {
+			
+			System.out.println("Erro:" + e.getMessage());
+		}
 		
 		
 		sc.close();

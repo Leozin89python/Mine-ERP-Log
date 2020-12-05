@@ -30,13 +30,17 @@ public class Distribuicao {
 
 	@Override
 	public String toString() {
-		return "Distribuicao:"
+		return  "================"
+				+"\n"
+				+"Distribuicao:"
 				+"\n"
 				+ "rotas:" 
 				+ rotas + ","
 				+"\n"
 				+"veiculo:" 
-				+ veiculo;
+				+ veiculo
+				+"\n"
+				+"===============";
 	}
 	
 }
