@@ -10,6 +10,9 @@ import Services.Distribuicao;
 import Services.Estoque;
 import Services.Enum.codigo;
 import Services.Pessoal;
+import Services.Produto;
+import Services.Enum.Status;
+import Services.Expedicao;
 
 public class Programa {
 
@@ -21,6 +24,8 @@ public class Programa {
 		List <Distribuicao> dis = new ArrayList<>();
 		List <Estoque> stq = new ArrayList<>();
 		List <Pessoal> ps = new ArrayList<>();
+		List <Produto> pd = new ArrayList<>();
+		List <Expedicao> ex = new ArrayList<>();
 		
 		System.out.println("=============");
 		System.out.println("===Sistema===");
@@ -83,11 +88,21 @@ public class Programa {
 			int quantidade = sc.nextInt();
 			stq.add(new Estoque(codigo.valueOf(cod),quantidade));
 			for(Estoque info: stq) {
-				System.out.println(info);
+				System.out.println(info.toString());
 			}
 			break;
 		case 3:
 			System.out.println( "3 - Expedi..");
+			System.out.println("status:");
+			String status = sc.next();
+			System.out.println("setor:");
+			String setor_Exp = sc.next();
+			System.out.println("superior responsavel:");
+			String nome_Responsavel = sc.next();
+			ex.add(new Expedicao(Status.valueOf(status),setor_Exp,nome_Responsavel));
+			for(Expedicao info: ex)	{
+				System.out.println(info.toString());
+			}
 			break;
 		case 4:
 			System.out.println("4 - Pessoal");
@@ -106,6 +121,14 @@ public class Programa {
 			break;
 		case 5:
 			System.out.println("5 - Produtos");
+			System.out.println("item:");
+			String prod = sc.next();
+			System.out.println("valor:");
+			double preco = sc.nextDouble();
+			pd.add(new Produto(prod,preco));
+			for(Produto info: pd) {
+				System.out.println(info.toString());
+			}
 			break;
 		default:
 			System.out.println("Setor desconhecido");
@@ -151,11 +174,21 @@ public class Programa {
 				int quantidade = sc.nextInt();
 				stq.add(new Estoque(codigo.valueOf(cod),quantidade));
 				for(Estoque info: stq) {
-					System.out.println(info);
+					System.out.println(info.toString());
 				}
 				break;
 			case 3:
 				System.out.println( "3 - Expedi..");
+				System.out.println("status:");
+				String status = sc.next();
+				System.out.println("setor:");
+				String setor_Exp = sc.next();
+				System.out.println("superior responsavel:");
+				String nome_Responsavel = sc.next();
+				ex.add(new Expedicao(Status.valueOf(status),setor_Exp,nome_Responsavel));
+				for(Expedicao info: ex)	{
+					System.out.println(info.toString());
+				}
 				break;
 			case 4:
 				System.out.println("4 - Pessoal");
@@ -174,6 +207,14 @@ public class Programa {
 				break;
 			case 5:
 				System.out.println("5 - Produtos");
+				System.out.println("item:");
+				String prod = sc.next();
+				System.out.println("valor:");
+				double preco = sc.nextDouble();
+				pd.add(new Produto(prod,preco));
+				for(Produto info: pd) {
+					System.out.println(info.toString());
+				}
 				break;
 			default:
 				System.out.println("Setor desconhecido");
